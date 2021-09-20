@@ -1,3 +1,4 @@
+ipAddr: localhost
 server:
   port: 11000
 spring:
@@ -5,8 +6,8 @@ spring:
     name: mall-ware
   datasource:
     username: root
-    password: mq0000
-    url: jdbc:mysql://10.43.1.52:3306/mall_wms?serverTimezone=Asia/Shanghai
+    password: root123
+    url: jdbc:mysql://${ipAddr}:3306/mall_wms?serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
@@ -18,14 +19,14 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
   rabbitmq:
-    host: 10.43.1.52
+    host: ${ipAddr}
     virtual-host: /
     listener:
       simple:
         # 手动确认接受消息
         acknowledge-mode: manual
   zipkin:
-    base-url: 10.43.1.52:9411/
+    base-url: ${ipAddr}:9411/
     # 关闭我们自动的服务发现功能
     discovery-client-enabled: false
     sender:

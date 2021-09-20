@@ -1,8 +1,8 @@
-ipAddr: 10.43.1.52
+ipAddr: localhost
 spring:
   datasource:
     username: root
-    password: mq0000
+    password: root123
     url: jdbc:mysql://${ipAddr}:3306/mall_pms?serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
@@ -43,7 +43,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 server:
-  port: 10001
+  port: 1001
 logging:
   level:
     com.firenay.mall.product: error
