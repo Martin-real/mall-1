@@ -1,4 +1,4 @@
-ipAddr: 10.43.1.52
+ipAddr: localhost
 spring:
   application:
     name: mall-auth-server
@@ -8,7 +8,7 @@ spring:
         server-addr: 127.0.0.1:8848
     sentinel:
       transport:
-        dashboard: localhost:8333
+        dashboard: localhost:8858
   thymeleaf:
     cache: false
   session:

@@ -1,4 +1,4 @@
-ipAddr: 10.43.1.52
+ipAddr: localhost
 spring:
   application:
     name: mall-cart
