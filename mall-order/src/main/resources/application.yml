@@ -13,7 +13,7 @@ spring:
     name: mall-order
   datasource:
     username: root
-    password: mq0000
+    password: root123
     url: jdbc:mysql://${ipAddr}:3306/mall_oms
     driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf:
@@ -70,7 +70,7 @@ myRabbitmq:
     routingKey: order.release.order
     createOrder: order.create.order
     # 订单自动过期时间 单位:(毫秒)
-    ttl: 900000
+    ttl: 60000
     # 库存解锁队列
     ReleaseOther: stock.release.stock.queue
     ReleaseOtherKey: order.release.other

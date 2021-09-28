@@ -26,9 +26,12 @@ class MallWareApplicationTests {
 		Map<String ,Object> arguments = new HashMap<>();
 		arguments.put("x-dead-letter-exchange", "order-event-exchange");
 		arguments.put("x-dead-letter-routing-key", "order.release.order");
-		arguments.put("x-message-ttl", 900000);
+		arguments.put("x-message-ttl", 60000);
 		Queue queue = new Queue("order.delay.queue", true, false, false, arguments);
 		amqpAdmin.declareQueue(queue);
+
+		Queue mall_queue = new Queue("mall-queue", true, false, false, arguments);
+		amqpAdmin.declareQueue(mall_queue);
 
 		queue = new Queue("order.release.order.queue", true, false, false);
 		amqpAdmin.declareQueue(queue);
@@ -52,7 +55,7 @@ class MallWareApplicationTests {
 		Map<String ,Object> arguments = new HashMap<>();
 		arguments.put("x-dead-letter-exchange", "order-event-exchange");
 		arguments.put("x-dead-letter-routing-key", "order.release.order");
-		arguments.put("x-message-ttl", 900000);
+		arguments.put("x-message-ttl", 60000);
 		Queue queue = new Queue("order.delay.queue", true, false, false, arguments);
 		amqpAdmin.declareQueue(queue);
 	}

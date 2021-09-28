@@ -77,10 +77,22 @@ spring:
           uri: lb://mall-member
           predicates:
             - Host=member.glmall.com
+#        - id: order_route
+#          uri: lb://mall-order
+#          predicates:
+#            - Host=order.glmall.com
         - id: order_route
           uri: lb://mall-order
           predicates:
-            - Host=order.glmall.com
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+#        - id: member_route
+#          uri: lb://mall-member
+#          predicates:
+#            - Path=/api/member/**
+#          filters:
+#            - RewritePath=/api/(?<segment>.*), /$\{segment}
         # 任何以mall.com结尾的域名转发到mall-product
         - id: mall_route
           uri: lb://mall-product
