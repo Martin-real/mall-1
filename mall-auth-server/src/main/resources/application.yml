@@ -15,6 +15,10 @@ spring:
     store-type: redis
   redis:
     host: ${ipAddr}
+#  resources:
+#    static-locations: [ "/templates/","/resources/","/static/","/public/","static/" ]
+#  mvc:
+#    static-path-pattern: /**
 server:
   port: 20000
   # session存活时间
